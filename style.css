@@ -24,14 +24,13 @@ a {
 
  :root {
     --header-height: 4.5rem;
-    --hue: 205;
-    --base-color: hsl(var(--hue)75% 46%);
-    --base-color-second: hsl(var(--hue)65% 88%);
+    --base-color: #51c4c9;
+    --base-color-second: #51c4c9;
     --base-color-alt: hsl(var(--hue)57% 53%);
-    --title-color: hsl(var(--hue)41% 10%);
-    --text-color: hsl(0, 0%, 0%);
+    --title-color: #51c4c9;
+    --text-color:#e5e5e5;
     --text-color-light: hsla(204, 100%, 1%, 0.993);
-    --body-color: hsl(0, 0%, 100%);
+    --body-color: #2e302f;
     /* fonts */
     --title-font-size: 2.5rem;
     --subtitle-font-size: 1rem;
@@ -77,12 +76,12 @@ body {
 
 .divider-1 {
     height: 1px;
-    background: linear-gradient( 270deg, hsla(var(--hue), 36%, 57%, 1), hsla(var(--hue), 65%, 88%, 0.34));
+    background: linear-gradient( 270deg, var(--base-color), var(--body-color));
 }
 
 .divider-2 {
     height: 1px;
-    background: linear-gradient( 270deg, hsla(var(--hue), 65%, 88%, 0.34), hsla(var(--hue), 36%, 57%, 1));
+    background: linear-gradient( 270deg, var(--body-color), var(--base-color));
 }
 
 .container {
@@ -96,7 +95,7 @@ body {
 }
 
 .section {
-    padding: calc(2.5rem + var(--header-height))0;
+    padding: calc(1rem + var(--header-height))0;
 }
 
 .section .title {
@@ -116,7 +115,7 @@ body {
 }
 
 #header {
-    border-bottom: 1px solid #e4e4e4;
+    border-bottom: 1px solid var(--text-color);
     margin-bottom: 2rem;
     display: flex;
     position: fixed;
@@ -255,7 +254,11 @@ nav.show div.icon-close {
 
 #home {
     overflow: hidden;
-    background-image: url('/assets/fotos/bg.jpeg');
+    background-image: linear-gradient(
+    to right bottom,
+    rgb(46,48,47, 0.5),
+    rgb(46,48,47, 0.9)
+    ), url('/assets/fotos/home.webp');
     background-position: center;
     background-size: cover;
     height: 100vh;
@@ -298,12 +301,12 @@ nav.show div.icon-close {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 8rem;
+    width:100%;
 }
 
 #home .text h2 {
     color: var(--base-color);
-    font-size: 3.5rem;
+    font-size: 4rem;
 }
 
 #home .text h2,
@@ -321,10 +324,6 @@ nav.show div.icon-close {
 
 
 /* =============ABOUT============ */
-
-#about {
-    background: white;
-}
 
 #about .container {
     margin: 0;
@@ -359,10 +358,17 @@ nav.show div.icon-close {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
+#about .text p {
+    text-align:justify;
+}
 
 
 /* =============SERVICES============= */
-
+#services .header-services{
+    width:100%;
+    position:relative;
+    text-align:center;
+}
 .cards.grip {
     gap: 1.5rem;
 }
@@ -528,7 +534,7 @@ footer .social a:hover {
         margin-right: auto;
     }
     .section {
-        padding: 10rem 0;
+        padding: 8rem 0;
     }
     .section header,
     #testimonials header {
@@ -573,8 +579,7 @@ footer .social a:hover {
     }
     #home .text {
         order: 0;
-        max-width: 24rem;
-        text-align: left;
+        text-align: center;
     }
     #about .container {
         margin: 0 auto;
